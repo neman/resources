@@ -1,0 +1,2 @@
+# blogs
+Various IT blogs
