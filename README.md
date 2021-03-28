@@ -14,6 +14,7 @@ https://verraes.net
 https://zimarev.com  
 https://www.kalzumeus.com  
 https://ardalis.com/blog  
+https://buildplease.com  
 
 # github
 
