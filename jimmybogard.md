@@ -97,7 +97,7 @@ http://grabbagoft.blogspot.com/2007/06/pop-quiz-on-ref-and-out-parameters-in-c.h
 
 
 
-Dealing with Duplication in MediatR Handlers
+[Dealing with Duplication in MediatR Handlers](https://lostechies.com/jimmybogard/2016/12/12/dealing-with-duplication-in-mediatr-handlers/)
 ============================================
 
 12 December, 2016. It was a Monday.[](#disqus_thread)
