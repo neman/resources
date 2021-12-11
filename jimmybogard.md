@@ -94,6 +94,7 @@ http://grabbagoft.blogspot.com/2007/06/re-throwing-exceptions.html
 http://grabbagoft.blogspot.com/2007/06/swallowing-exceptions-is-hazardous-to.html  
 http://grabbagoft.blogspot.com/2007/06/proper-string-comparison.html  
 http://grabbagoft.blogspot.com/2007/06/pop-quiz-on-ref-and-out-parameters-in-c.html  
+https://lostechies.com/jimmybogard/2016/06/03/what-microservices-is-not/
 
 [CQRS/MediatR implementation patterns](https://lostechies.com/jimmybogard/2016/10/27/cqrsmediatr-implementation-patterns/)
 ====================================
