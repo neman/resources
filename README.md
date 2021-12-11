@@ -7,6 +7,8 @@ https://ericlippert.com
 https://ayende.com/blog  
 https://martinfowler.com  
 https://blog.ploeh.dk  
+https://codemanship.wordpress.com (previously http://www.codemanship.co.uk)   
+
 
 https://paulovich.net  
 https://jasontaylor.dev  
