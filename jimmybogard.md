@@ -1,7 +1,7 @@
 ## LosTechies archive   
 https://lostechies.com/jimmybogard/archive
 
-## Good reads - stand the test of time
+## Best of
 ### 2007
 
 #### https://lostechies.com/jimmybogard/2007/04/16/evils-of-duplication/
