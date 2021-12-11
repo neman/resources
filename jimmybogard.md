@@ -95,7 +95,7 @@ http://grabbagoft.blogspot.com/2007/06/swallowing-exceptions-is-hazardous-to.htm
 http://grabbagoft.blogspot.com/2007/06/proper-string-comparison.html  
 http://grabbagoft.blogspot.com/2007/06/pop-quiz-on-ref-and-out-parameters-in-c.html  
 
-CQRS/MediatR implementation patterns
+[CQRS/MediatR implementation patterns](https://lostechies.com/jimmybogard/2016/10/27/cqrsmediatr-implementation-patterns/)
 ====================================
 
 27 October, 2016. It was a Thursday.[](#disqus_thread)
@@ -106,7 +106,7 @@ Early on in the CQRS/ES days, I saw a lot of questions on modeling problems with
 
 Usually, these questions were answered a little derisively  – “you shouldn’t use event sourcing if your app is a simple CRUD app”. But that belied the truth – no app I’ve worked with is JUST a DDD app, or JUST a CRUD app, or JUST an event sourcing app. There are pockets of complexity with varying degrees along varying axes. Some areas have query complexity, some have modeling complexity, some have data complexity, some have behavior complexity and so on. We try to choose a single modeling strategy for the entire application, and it doesn’t work. When teams realize this, I typically see people break things out in to bounded contexts or microservices:
 
-[![image](https://lostechies.com/content/jimmybogard/uploads/2016/10/image_thumb2.png)](https://lostechies.com/content/jimmybogard/uploads/2016/10/image2.png)
+![image](https://user-images.githubusercontent.com/350314/145684051-dcec7fd4-a399-4b7b-a1c9-a8f65e1546b0.png)
 
 With this approach, you break your system into individual bounded contexts or microservices, based on the need to choose a single modeling strategy for the entire context/app.
 
@@ -120,13 +120,13 @@ A major aspect of CQRS and MediatR is modeling your application into a series of
 
 Usage of MediatR with CQRS is straightforward. You build distinct request classes for every request in your system (these are almost always mapped to user actions), and build a distinct handler for each:
 
-[![image](https://lostechies.com/content/jimmybogard/uploads/2016/10/image_thumb3.png)](https://lostechies.com/content/jimmybogard/uploads/2016/10/image3.png)
+![image](https://user-images.githubusercontent.com/350314/145684057-01c441a2-7b06-41b9-ad13-0cfc87b85e88.png)
 
 Each request and response is distinct, and I generally discourage reuse since my requests route to front-end activities. If the front-end activities are reused (i.e. an approve button on the order details and the orders list), then I can reuse the requests. Otherwise, I don’t reuse.
 
 Since I’ve built isolation between individual requests and responses, I can choose different patterns based on each request:
 
-[![image](https://lostechies.com/content/jimmybogard/uploads/2016/10/image_thumb4.png)](https://lostechies.com/content/jimmybogard/uploads/2016/10/image4.png)
+![image](https://user-images.githubusercontent.com/350314/145684066-bb4b432c-776c-4586-94c2-a8bb8dba8b48.png)
 
 Each request handler can determine the appropriate strategy based on \*that request\*, isolated from decisions in other handlers. I avoid abstractions that stretch across layers, like repositories and services, as these tend to lock me in to a single strategy for the entire application.
 
@@ -139,13 +139,13 @@ In a single application, your handlers can execute against:
 
 It’s entirely up to you! From the application’s view, everything is still modeled in terms of requests and responses:
 
-[![image](https://lostechies.com/content/jimmybogard/uploads/2016/10/image_thumb5.png)](https://lostechies.com/content/jimmybogard/uploads/2016/10/image5.png)
+![image](https://user-images.githubusercontent.com/350314/145684076-154a1d2e-d26b-450d-b75a-f27d1b6162b7.png)
 
 The application simply doesn’t care about the implementation details of a handler – nor the modeling that went into whatever generated the response. It only cares about the shape of the request and the shape (and implications and guarantees of behavior) of the response.
 
 Now obviously there is some understanding of the behavior of the handler – we expect the side effects of the handler based on the direct or indirect outputs to function correctly. But how they got there is immaterial. It’s how we get to a design that truly focuses on behaviors and not implementation details. Our final picture looks a bit more reasonable:
 
-[![image](https://lostechies.com/content/jimmybogard/uploads/2016/10/image_thumb6.png)](https://lostechies.com/content/jimmybogard/uploads/2016/10/image6.png)
+![image](https://user-images.githubusercontent.com/350314/145684097-cefd9e11-543a-4766-8ca6-a4a1bfc85262.png)
 
 Instead of forcing ourselves to rely on a single pattern across the entire application, we choose the right approach for the context.
 
@@ -153,7 +153,7 @@ Instead of forcing ourselves to rely on a single pattern across the entire appli
 
 One last note – it’s easy in this sort of system to devolve into ugly handlers:
 
-[![image](https://lostechies.com/content/jimmybogard/uploads/2016/10/image_thumb7.png)](https://lostechies.com/content/jimmybogard/uploads/2016/10/image7.png)
+![image](https://user-images.githubusercontent.com/350314/145684112-47f13737-3f44-40a6-a239-b5729510848a.png)
 
 Driving all our requests through a single mediator pinch point doesn’t mean we absolve ourselves of the responsibility of thinking about our modeling approach. We shouldn’t just pick transaction script for every handler just because it’s easy. We still need that “Refactor” step in TDD, so it’s important to think about our model **before** we write our handler and pay close attention to code smells **after** we write it.
 
