@@ -1,9 +1,9 @@
-### Chapter 1
+## Chapter 1
 
 
 1. Ershov considers this not only a woe, but also a part of the joy. A.P. Ershov, "Aestetics and the human factor in programming," CACM, 15, 7 (July, 1972, pp.501-505)
 
-#### Aesthetics and the Human Factor in Programming
+### Aesthetics and the Human Factor in Programming
 
 
 ### by [A.P. Ershov](http://en.wikipedia.org/wiki/Andrey_Ershov)
